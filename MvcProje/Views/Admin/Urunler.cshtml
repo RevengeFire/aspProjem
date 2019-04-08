@@ -1,0 +1,107 @@
+﻿@model MvcProje.Models.urunler
+
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="animated fadeIn">
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                @if (ViewBag.guncelle != null)
+                {
+                   <b> @ViewBag.guncelle</b>
+                }
+                else
+                {
+                   <b> Yeni Ürün Ekle</b>
+                 }</div>
+                <div class="card-body card-block">
+                    <form action="~/Admin/Urunler" method="post" class="">
+                        @if (Model != null)
+                        {
+                            <input type="hidden" name="urunid" value="@Model.urunid" />
+                        }
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="urunad" placeholder="Ürün Adı" class="form-control" value="@if (Model != null) {@Model.urunad}">
+                                <div class="input-group-addon"><i class="fa fa-product-hunt"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="urunfiyat" placeholder="Ürün Fiyatı" class="form-control" value="@if (Model != null) {@Model.urunfiyat}">
+                                <div class="input-group-addon"><i class="fa fa-money "></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="urunstokadet" placeholder="Stok Adet" class="form-control" value="@if (Model != null) {@Model.urunstokadet}">
+                                <div class="input-group-addon"><i class="fas fa-store-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="file" name="urunresim" placeholder="Ürün Resim" class="form-control" value="@if (Model != null) {@Model.urunresim}">
+                                <div class="input-group-addon"><i class="fa fa-file-picture-o"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="urunozellik" placeholder="Ürün Özellikleri" class="form-control" value="@if (Model != null) {@Model.urunozellik}">
+                                <div class="input-group-addon"><i class="fa fa-info-circle"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select name="urunkategori" class="form-control">
+                                    @if (Model != null)
+                                    {
+                                        <option value="@Model.urunkategori">@ViewBag.kate</option>
+                                    }
+                                    <option value="0">Seçiniz</option>
+                                    @foreach (var item in ViewBag.kategoriliste)
+                                    {
+                                        <option value="@item.katid">@item.katad</option>
+                                    }
+                                </select>
+                                
+                                <div class="input-group-addon"><i class="fa fa-archive"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-actions form-group"><button type="submit" class="btn btn-secondary btn-sm">
+                            @if (ViewBag.guncelle != null)
+                            {
+                                <b>Güncelle</b>
+                            }
+                            else
+                            {
+                                <b>Ekle</b>
+                              }</button></div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    @if (ViewBag.hata != null)
+                    {
+                        <span class="badge badge-danger">@ViewBag.hata</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+

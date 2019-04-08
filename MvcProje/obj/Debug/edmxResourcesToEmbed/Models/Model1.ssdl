@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kodlama1_mvcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="katid" />
+    </Key>
+    <Property Name="katid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="katad" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roller">
+    <Key>
+      <PropertyRef Name="rolid" />
+    </Key>
+    <Property Name="rolid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rolad" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sepet">
+    <Key>
+      <PropertyRef Name="sepetid" />
+    </Key>
+    <Property Name="sepetid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sepeturunid" Type="int" Nullable="false" />
+    <Property Name="sepetuserid" Type="int" Nullable="false" />
+    <Property Name="sepeturunadet" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="urunler">
+    <Key>
+      <PropertyRef Name="urunid" />
+    </Key>
+    <Property Name="urunid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urunad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="urunfiyat" Type="money" Nullable="false" />
+    <Property Name="urunstokadet" Type="int" Nullable="false" />
+    <Property Name="urunresim" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="urunozellik" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="urunkategori" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userlar">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="usersifre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userrol" Type="int" />
+  </EntityType>
+  <EntityContainer Name="kodlama1_mvcModelStoreContainer">
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="mvcuser" store:Type="Tables" />
+    <EntitySet Name="roller" EntityType="Self.roller" Schema="mvcuser" store:Type="Tables" />
+    <EntitySet Name="sepet" EntityType="Self.sepet" Schema="mvcuser" store:Type="Tables" />
+    <EntitySet Name="urunler" EntityType="Self.urunler" Schema="mvcuser" store:Type="Tables" />
+    <EntitySet Name="userlar" EntityType="Self.userlar" Schema="mvcuser" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

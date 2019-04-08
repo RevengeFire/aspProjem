@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MvcProje.Models.urunlerkat>
+@{
+    ViewBag.Title = "UrunListele";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">Üyelerimiz</strong>
+                    @if (ViewBag.silmehatasi != null)
+                    {
+                        <span class="badge badge-pill">@ViewBag.silmehatasi</span>
+                    }
+                </div>
+                <div class="table-stats order-table ov-h">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th class="serial">ID</th>
+                                <th>Adı</th>
+                                <th>Fiyatı</th>
+                                <th>Stok Adedi</th>
+                                <th>Resim</th>
+                                <th>Özellik</th>
+                                <th>Kategori</th>
+                                <th></th>
+                            </tr>
+                        </thead>                 
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="serial">
+                                            @item.urunid
+                                        </td>
+                                        <td>@item.urunad</td>
+                                        <td>@item.urunfiyat</td>
+
+                                        <td>@item.urunstokadet"</td>
+                                        <td><img src="~/Resimler/@item.urunresim" class="img-thumbnail" /></td>
+                                        <td>@item.urunozellik</td>
+                                         <td>@item.urunkategoriad                           
+                                        </td>
+                                        <td><a href="~/Admin/Urunler/@item.urunid" class="fa fa-circle-notch"> Güncelle</a></td>
+                                    </tr>
+                                  
+                                }
+                               
+                            </tbody>
+                        
+                    </table>
+                </div> <!-- /.table-stats -->
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewBag.kisilerim != null)
+{
+
+    foreach (var item in ViewBag.kisilerim)
+    {
+        @item.userad
+        @item.userid
+    }
+}
+
+

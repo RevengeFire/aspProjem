@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MvcProje.Models.Kategori>
+
+    @{
+        ViewBag.Title = "Kategoriler";
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+<div class="animated fadeIn">
+
+    <div class="alerts">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Kategorilerim</strong>
+                    </div>
+                    <div class="row ">
+                        @foreach (var kat in Model)
+                        {
+                        <div class="col-md-4">
+                            <div class="card-body">
+
+                                <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                                   @if (ViewBag.adet < 3)
+                                   {
+                                    <span class="badge badge-pill badge-primary">Yeni</span>
+                                   }
+                                   @kat.katad
+                                   <a href="~/Admin/KatSil/@kat.katid" class="close"> 
+                                        <span aria-hidden="true">&times;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                            ViewBag.adet--;
+                        }
+
+
+
+                    </div>
+                    </div>
+                   
+                   
+                   
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+

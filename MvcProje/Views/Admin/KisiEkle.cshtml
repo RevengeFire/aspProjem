@@ -1,0 +1,58 @@
+﻿@model MvcProje.Models.userlar
+
+@{
+    ViewBag.Title = "KisiEkle";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="animated fadeIn">
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">Yeni Kullanıcı Bilgileri</div>
+                <div class="card-body card-block">
+                    <form action="~/Admin/KisiEkle" method="post" class="">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="userad" placeholder="Kullanıcı Adı" class="form-control">
+                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password"  name="usersifre" placeholder="Şifre" class="form-control">
+                                <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select class="form-control" name="userrol">
+                                    <option value="0">Seçiniz</option>
+                                    @foreach (var rol in ViewBag.roller)
+                                    {
+                                    <option value="@rol.rolid">@rol.rolad</option>
+                                    }
+                                </select>
+                                <div class="input-group-addon"><i class="fas fa-graduation-cap"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-actions form-group"><button type="submit" class="btn btn-secondary btn-sm">Kaydet</button></div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    @if (ViewBag.hata != null)
+                    {
+                        <span class="badge badge-danger">@ViewBag.hata</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+

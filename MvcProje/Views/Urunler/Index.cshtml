@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MvcProje.Models.urunlerkat>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Start Feature Area -->
+<section class="feature-area pt-100 pb-100  relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch">
+                <div class="single-feature">
+                    <form id="@item.urunid" action="/Urunler/Index" method="post">
+                        <div class="icon">
+                            <img class="img-thumbnail" src="~/Resimler/@item.urunresim" />
+                        </div>
+                        <div class="desc">
+                            <h2 class="text-uppercase">@item.urunad <br> Fiyat : @item.urunfiyat</h2>
+                            <p>
+                                @item.urunozellik
+                                <br />
+                                @item.urunkategoriad
+                                <br />
+                                Adet :
+                                <input type="number" name="adet" value="1" class="form-control" />
+                                <input type="hidden" name="id" value="@item.urunid" />
+                            </p>
+                        </div>
+                        <input type="submit" class="btn btn-info" value="Ürün Ekle" />
+                    </form>
+                </div>
+            </div>
+            }
+
+
+
+
+        </div>
+    </div>
+</section>
+<!-- Start Feature Area -->

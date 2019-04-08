@@ -1,0 +1,44 @@
+﻿@model MvcProje.Models.Kategori
+
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="animated fadeIn">
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">Yeni Kategoriler</div>
+                <div class="card-body card-block">
+                    <form action="~/Admin/KategoriEkle" method="post" class="">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="katad" placeholder="Kategori Adı" class="form-control">
+                                <div class="input-group-addon"><i class="fa fa-archive"></i></div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-actions form-group"><button type="submit" class="btn btn-secondary btn-sm">Ekle</button></div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    @if (ViewBag.hata != null)
+                    {
+                        <span class="badge badge-danger">@ViewBag.hata</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kodlama1_mvcModelStoreContainer" CdmEntityContainer="kodlama1_mvcEntities">
+    <EntitySetMapping Name="userlar">
+      <EntityTypeMapping TypeName="kodlama1_mvcModel.userlar">
+        <MappingFragment StoreEntitySet="userlar">
+          <ScalarProperty Name="userrol" ColumnName="userrol" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="userad" ColumnName="userad" />
+          <ScalarProperty Name="usersifre" ColumnName="usersifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roller">
+      <EntityTypeMapping TypeName="kodlama1_mvcModel.roller">
+        <MappingFragment StoreEntitySet="roller">
+          <ScalarProperty Name="rolad" ColumnName="rolad" />
+          <ScalarProperty Name="rolid" ColumnName="rolid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategori">
+      <EntityTypeMapping TypeName="kodlama1_mvcModel.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="katad" ColumnName="katad" />
+          <ScalarProperty Name="katid" ColumnName="katid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="urunler">
+      <EntityTypeMapping TypeName="kodlama1_mvcModel.urunler">
+        <MappingFragment StoreEntitySet="urunler">
+          <ScalarProperty Name="urunkategori" ColumnName="urunkategori" />
+          <ScalarProperty Name="urunozellik" ColumnName="urunozellik" />
+          <ScalarProperty Name="urunresim" ColumnName="urunresim" />
+          <ScalarProperty Name="urunstokadet" ColumnName="urunstokadet" />
+          <ScalarProperty Name="urunfiyat" ColumnName="urunfiyat" />
+          <ScalarProperty Name="urunad" ColumnName="urunad" />
+          <ScalarProperty Name="urunid" ColumnName="urunid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sepet">
+      <EntityTypeMapping TypeName="kodlama1_mvcModel.sepet">
+        <MappingFragment StoreEntitySet="sepet">
+          <ScalarProperty Name="sepeturunadet" ColumnName="sepeturunadet" />
+          <ScalarProperty Name="sepetuserid" ColumnName="sepetuserid" />
+          <ScalarProperty Name="sepeturunid" ColumnName="sepeturunid" />
+          <ScalarProperty Name="sepetid" ColumnName="sepetid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

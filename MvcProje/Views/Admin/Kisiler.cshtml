@@ -1,0 +1,85 @@
+﻿@model List<MvcProje.Models.userverol>
+@{
+    ViewBag.Title = "Kisiler";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">Üyelerimiz</strong>
+                    @if (ViewBag.silmehatasi != null)
+                    {
+                        <span class="badge badge-pill">@ViewBag.silmehatasi</span>
+                    }
+                </div>
+                <div class="table-stats order-table ov-h">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th class="serial">ID</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Şifre</th>
+                                <th >Rol Adı</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                       
+                        
+                        <form action="~/Admin/KisiGuncelle" method="post">
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td class="serial">
+                                            @item.userid
+                                   <input type="hidden" name="[@ViewBag.sayi].userid" value="@item.userid" />
+                                                                            </td>
+                                       
+                                        <td><input type="text" class="form-control w-50" name="[@ViewBag.sayi].userad" value="@item.userad" /></td>
+                                        <td><input type="text" class="form-control w-50" name="[@ViewBag.sayi].usersifre" value="@item.usersifre" /></td>
+
+                                        <td>
+                                            <input type="hidden" name="[@ViewBag.sayi].userrolad" value="@item.userrolad" />
+                                            <select name="[@ViewBag.sayi].userrolid" class="form-control w-75">
+                                                <option value="@item.userrolid">
+                                                    @item.userrolad
+                                            </option>
+                                               
+                                            @foreach (var rolum in ViewBag.rol)
+                                            {
+                                                <option value="@rolum.rolid">@rolum.rolad</option>                  
+                                            }
+                                        </select>
+                                    </td>
+                                        <td><a href="~/Admin/KisiSil/@item.userid" class="fa fa-eraser"> Sil</a></td>
+                                </tr>
+                                    ViewBag.sayi--;
+                                }
+                                <tr>
+                                    <td colspan="4"><input class="btn btn-dark" type="submit" value="Güncelle" /> 
+                                    <a href="~/Admin/KisiEkle" class="btn btn-danger">Yeni Üye Ekle</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                </div> <!-- /.table-stats -->
+            </div>
+        </div>
+</div>
+</div>
+@if (ViewBag.kisilerim != null)
+{
+
+    foreach (var item in ViewBag.kisilerim)
+    {
+        @item.userad
+        @item.userid
+    }
+}

@@ -1,0 +1,62 @@
+﻿@model  IEnumerable<MvcProje.Models.sepette>
+@{
+    ViewBag.Title = "SepetGoruntule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">Sepetteki Ürünler</strong>
+                </div>
+                <div class="card-body">
+                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Adı</th>
+                                <th>Resim</th>
+                                <th>Adet</th>
+                                <th>Birim Fiyat</th>
+                                <th>Toplam Fiyat</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.urunad</td>
+                                    <td><img src="~/Resimler/@item.urunresim" class=" img-thumbnail" width="7%" height="7%" /></td>
+                                    <td><input id="adet_@item.urunid" class="form-control" type="number" value="@item.urunadet" onclick="arttir(@item.urunid)" /></td>
+                                    <td id="fiyat_@item.urunid">@item.urunfiyat</td>
+                                    <td id="toplam_@item.urunid">@(item.urunadet * item.urunfiyat)</td>
+                                    <td><a href="~/Urunler/Sil/@item.urunid" class="fa fa-eraser"></a></td>
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                    <script>
+                        function arttir(id) {
+                            var adet = parseInt(document.getElementById("adet_" + id).value);
+                            //alert(adet);
+                            var fiyat = parseFloat(document.getElementById("fiyat_" + id).innerText);
+                            //alert(fiyat);
+                            var toplam = fiyat * adet;
+                            //alert(toplam);
+                            document.getElementById("toplam_" + id).innerText = toplam;
+
+                        }
+                    </script>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
